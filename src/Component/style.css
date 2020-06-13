@@ -1,0 +1,19 @@
+header{
+    background-color: slategray;
+    width: 1500px;
+    height: 80px;;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+    padding-top: 30px;;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: whitesmoke;
+
+}
+.btn{
+    background-color:red;
+}
