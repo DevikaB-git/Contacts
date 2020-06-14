@@ -9,11 +9,21 @@ class Dropdown extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick() {
-        let selectElement = document.querySelector('select');
+
+        let selectElement = document.querySelector('#view1');
 
         let output = selectElement.value;
 
+        let selectElement1 = document.querySelector('#view2');
+
+        let output1 = selectElement1.value;
+
         document.querySelector('.output').textContent = output;
+
+        document.querySelector('.output1').textContent = output1;
+
+        document.querySelector('.output2').textContent = output + " " + output1;
+
     }
 
 
@@ -25,7 +35,7 @@ class Dropdown extends React.Component {
                 <Form style={{ 'position': 'relative', 'max-width': '60%', 'margin-left': '30%', 'margin-top': '100px' }} onSubmit={this.onSubmit}>
                     <Form.Field>
                         <label htmlFor="fname">First Name</label>
-                        <select class="dropdown" style={{ width: "200px", height: "50px" }}>
+                        <select id="view1" class="dropdown" style={{ width: "200px", height: "50px" }}>
                             <option value="Tony">Tony</option>
                             <option value="Tom">Tom</option>
                             <option value="Jerry">Jerry</option>
@@ -35,24 +45,30 @@ class Dropdown extends React.Component {
                 <Form style={{ 'position': 'relative', 'max-width': '60%', 'margin-left': '55%', 'margin-top': '-80px' }}>
                     <Form.Field>
                         <label htmlFor="lname">Last Name</label>
-                        <select class="dropdown" style={{ width: "200px", height: "50px" }}>
+                        <select id="view2" class="dropdown" style={{ width: "200px", height: "50px" }}>
                             <option value="Stark">Stark</option>
                             <option value="Hello">Hello</option>
                             <option value="World">World</option>
                         </select>
                     </Form.Field>
                     <Button onClick={this.handleClick} style={{ 'background-color': 'red', 'width': '180px', 'margin-left': '-175px', 'margin-top': '20px', 'height': '50px' }} primary >SUBMIT</Button>
+                    <h1 style={{ 'margin-top': '30px', 'margin-left': '-130px', 'margin-bottam': '-15px;', 'font-size': '19px', 'text-decoration': 'underline' }}>RESULTS</h1>
                 </Form>
-                <div class="row" >
-                    <p style={{ 'margin-top': '70px', 'margin-left': '650px' }}>
+                <div class="row" style={{ 'width': '140px', 'margin-top': '160px', 'margin-left': '-350px' }}>
+
+                    <p style={{}}>
                         First Name :
                     <span class="output"></span>
                     </p>
-                </div>
-                <div class="row" >
-                    <p style={{ 'margin-top': '100px', 'margin-left': '-45px' }}>
+
+                    <p id="result1" style={{}}>
                         Last Name :
                     <span class="output1"></span>
+                    </p>
+
+                    <p id="result1" style={{}}>
+                        Full Name :
+                    <span class="output2"></span>
                     </p>
                 </div>
             </div>

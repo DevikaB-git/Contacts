@@ -1,11 +1,11 @@
 header{
-    background-color: slategray;
+    background-color:#777777;
     width: 1500px;
     height: 80px;;
     text-align: center;
     font-size: 30px;
     font-weight: 100;
-    padding-top: 30px;;
+    padding-top: 15px;
 }
 
 .dropdown {

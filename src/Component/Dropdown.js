@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import './style.css';
+import Dropdown1 from './Dropdown1'
 
 
 class Dropdown extends React.Component {
@@ -22,6 +23,7 @@ class Dropdown extends React.Component {
 
         document.querySelector('.output1').textContent = output1;
 
+        document.querySelector('.output2').textContent = output + "  " + output1;
 
     }
 
@@ -34,40 +36,32 @@ class Dropdown extends React.Component {
                 <Form style={{ 'position': 'relative', 'max-width': '60%', 'margin-left': '30%', 'margin-top': '100px' }} onSubmit={this.onSubmit}>
                     <Form.Field>
                         <label htmlFor="fname">First Name</label>
-                        <select id="view1" class="dropdown" style={{ width: "200px", height: "50px" }}>
-                            <option value="Tony">Tony</option>
-                            <option value="Tom">Tom</option>
-                            <option value="Jerry">Jerry</option>
-                        </select>
+                        <Dropdown1 id="view1" />
+
                     </Form.Field>
                 </Form>
                 <Form style={{ 'position': 'relative', 'max-width': '60%', 'margin-left': '55%', 'margin-top': '-80px' }}>
                     <Form.Field>
                         <label htmlFor="lname">Last Name</label>
-                        <select id="view2" class="dropdown" style={{ width: "200px", height: "50px" }}>
-                            <option value="Stark">Stark</option>
-                            <option value="Hello">Hello</option>
-                            <option value="World">World</option>
-                        </select>
+                        <Dropdown1 id="view2" />
+
                     </Form.Field>
-                    <Button onClick={this.handleClick} style={{ 'background-color': 'red', 'width': '180px', 'margin-left': '-175px', 'margin-top': '20px', 'height': '50px' }} primary >SUBMIT</Button>
-                    <h1 style={{ 'margin-top': '30px', 'margin-left': '-160px', 'margin-bottam': '5px;' }}>RESULTS</h1>
+                    <Button onClick={this.handleClick} style={{ 'background-color': 'red', 'width': '180px', 'margin-left': '-175px', 'margin-top': '20px', 'height': '50px' }}
+                        primary >SUBMIT</Button>
+                    <h1 style={{ 'margin-top': '30px', 'margin-left': '-130px', 'margin-bottam': '-15px;', 'font-size': '19px', 'text-decoration': 'underline' }}>RESULTS</h1>
                 </Form>
-                <div class="row" >
+                <div class="row" style={{ 'width': '147px', 'margin-top': '160px', 'margin-left': '-350px' }}>
 
-                    <p style={{ 'margin-top': '50px', 'margin-left': '650px' }}>
-                        First Name :
-                    <span class="output"></span>
+                    <p style={{}}>
+                        First Name  :   <span class="output"></span>
                     </p>
 
-                    <p id="result1" style={{ 'margin-top': '90px', 'margin-left': '-75px' }}>
-                        Last Name :
-                    <span class="output1"></span>
+                    <p id="result1" style={{}}>
+                        Last Name  :   <span class="output1"></span>
                     </p>
 
-                    <p id="result1" style={{ 'margin-top': '130px', 'margin-left': '-70px' }}>
-                        Full Name :
-                    <span class="output2"></span>
+                    <p id="result1" style={{}}>
+                        Full Name  :   <span class="output2"></span>
                     </p>
                 </div>
             </div>
