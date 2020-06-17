@@ -1,14 +1,22 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import './style.css';
+import Axios from 'axios';
 import Dropdown1 from './Dropdown1'
 
 
+
 class Dropdown extends React.Component {
+
+
+
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
     }
+
+
+
     handleClick() {
 
         let selectElement = document.querySelector('#view1');
@@ -19,11 +27,11 @@ class Dropdown extends React.Component {
 
         let output1 = selectElement1.value;
 
-        document.querySelector('.output').textContent = output;
+        document.querySelector('.output').textContent = output
 
         document.querySelector('.output1').textContent = output1;
 
-        document.querySelector('.output2').textContent = output + "  " + output1;
+        document.querySelector('.output2').textContent = output + " " + output1;
 
     }
 
@@ -33,7 +41,7 @@ class Dropdown extends React.Component {
         return (
             <div class="row">
                 <header>CONTACT</header>
-                <Form style={{ 'position': 'relative', 'max-width': '60%', 'margin-left': '30%', 'margin-top': '100px' }} onSubmit={this.onSubmit}>
+                <Form style={{ 'position': 'relative', 'max-width': '60%', 'margin-left': '30%', 'margin-top': '100px' }}>
                     <Form.Field>
                         <label htmlFor="fname">First Name</label>
                         <Dropdown1 id="view1" />
@@ -65,6 +73,8 @@ class Dropdown extends React.Component {
                     </p>
                 </div>
             </div>
+
+
 
 
         )
