@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import './style.css';
-import Axios from 'axios';
 import Dropdown1 from './Dropdown1'
 
 
@@ -27,12 +26,35 @@ class Dropdown extends React.Component {
 
         let output1 = selectElement1.value;
 
-        document.querySelector('.output').textContent = output
 
-        document.querySelector('.output1').textContent = output1;
 
-        document.querySelector('.output2').textContent = output + " " + output1;
+        const body = {
 
+            "firstName": output,
+            "lastName": output1
+
+        }
+
+
+        fetch('http://localhost:4444/concat/new', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('.output').textContent = data.firstName;
+
+                document.querySelector('.output1').textContent = data.lastName;
+
+                document.querySelector('.output2').textContent = data.fullName;
+
+                document.querySelector('.output3').textContent = JSON.stringify(data);
+
+                console.log('Success:', data);
+            })
     }
 
 
@@ -70,6 +92,10 @@ class Dropdown extends React.Component {
 
                     <p id="result1" style={{}}>
                         Full Name  :   <span class="output2"></span>
+                    </p>
+
+                    <p id="result1" style={{}}>
+                        API Response :   <span class="output3"></span>
                     </p>
                 </div>
             </div>
