@@ -33,12 +33,10 @@ class Dropdown extends React.Component {
 
         document.querySelector('.output2').textContent = output + " " + output1;
 
-        axios.get('http://localhost:4444/concat', {
+        axios.post('http://localhost:4444/concat/new', {
 
-            params: {
-                firstName: output,
-                lastName: output1
-            }
+            firstName: output,
+            lastName: output1
         }
         )
             .then(response => {
