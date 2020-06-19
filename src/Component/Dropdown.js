@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import './style.css';
-import Dropdown1 from './Dropdown1'
+import Dropdown1 from './Dropdown1';
+import axios from 'axios';
 
 
 
@@ -26,36 +27,31 @@ class Dropdown extends React.Component {
 
         let output1 = selectElement1.value;
 
+        document.querySelector('.output').textContent = output;
 
+        document.querySelector('.output1').textContent = output1;
 
-        const body = {
+        document.querySelector('.output2').textContent = output + " " + output1;
 
-            "firstName": output,
-            "lastName": output1
+        axios.get('http://localhost:4444/concat', {
 
+            params: {
+                firstName: output,
+                lastName: output1
+            }
         }
+        )
+            .then(response => {
 
+                console.log(response.data);
+                document.querySelector('.output3').textContent = JSON.stringify(response.data);
 
-        fetch('http://localhost:4444/concat/new', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        })
-            .then(response => response.json())
-            .then(data => {
-                document.querySelector('.output').textContent = data.firstName;
+            }
+            )
+            .catch(error => alert(error))
 
-                document.querySelector('.output1').textContent = data.lastName;
-
-                document.querySelector('.output2').textContent = data.fullName;
-
-                document.querySelector('.output3').textContent = JSON.stringify(data);
-
-                console.log('Success:', data);
-            })
     }
+
 
 
     render() {
@@ -103,7 +99,7 @@ class Dropdown extends React.Component {
 
 
 
-        )
+        );
 
     }
 }
